@@ -1,3 +1,4 @@
+import random
 import turtle
 
 CANNON_STEP = 10
@@ -26,6 +27,7 @@ cannon.shape("square")
 cannon.setposition(0, FLOOR_LEVEL)
 
 lasers = []
+aliens = []
 
 #Cannon shape and size
 def draw_cannon():
@@ -68,12 +70,29 @@ def create_laser():
 
     lasers.append(laser)
 
-#Make the laser appear
+#Make the laser visible
 def move_laser(laser):
     laser.clear()
     laser.forward(LASER_SPEED)
     laser.forward(LASER_LENGTH)
     laser.forward(-LASER_LENGTH)
+
+#Create the aliens
+def create_alien():
+    alien = turtle.Turtle()
+    alien.penup()
+    alien.turtlesize(1.5)
+    alien.setposition(
+        random.randint(
+            int(LEFT + GUTTER),
+            int(RIGHT - GUTTER),
+        ),
+        TOP,
+    )
+    alien.shape("turtle")
+    alien.setheading(-90)
+    alien.color(random.random(), random.random(), random.random())
+    aliens.append(alien)
 
 #Key bindings
 window.onkeypress(move_left, "Left")
@@ -88,6 +107,11 @@ draw_cannon()
 while True:
     for laser in lasers:
         move_laser(laser)
+        if laser.ycor() > TOP:
+            laser.clear()
+            laser.hideturtle()
+            lasers.remove(laser)
+            turtle.turtles().remove(laser)
     window.update()
 
 turtle.done()
