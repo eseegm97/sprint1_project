@@ -1,6 +1,8 @@
 import turtle
 
 CANNON_STEP = 10
+LASER_LENGTH = 20
+LASER_SPEED = 10
 
 #Create the game screen/window
 window = turtle.Screen()
@@ -66,6 +68,13 @@ def create_laser():
 
     lasers.append(laser)
 
+#Make the laser appear
+def move_laser(laser):
+    laser.clear()
+    laser.forward(LASER_SPEED)
+    laser.forward(LASER_LENGTH)
+    laser.forward(-LASER_LENGTH)
+
 #Key bindings
 window.onkeypress(move_left, "Left")
 window.onkeypress(move_right, "Right")
@@ -74,5 +83,11 @@ window.onkeypress(turtle.bye, "q")
 window.listen()
 
 draw_cannon()
+
+#Game loop
+while True:
+    for laser in lasers:
+        move_laser(laser)
+    window.update()
 
 turtle.done()
