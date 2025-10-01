@@ -1,9 +1,11 @@
 import random
+import time
 import turtle
 
 CANNON_STEP = 10
 LASER_LENGTH = 20
 LASER_SPEED = 10
+ALIEN_SPAWN_INTERVAL = 1.2
 
 #Create the game screen/window
 window = turtle.Screen()
@@ -104,6 +106,7 @@ window.listen()
 draw_cannon()
 
 #Game loop
+alien_timer = 0
 while True:
     for laser in lasers:
         move_laser(laser)
@@ -112,6 +115,9 @@ while True:
             laser.hideturtle()
             lasers.remove(laser)
             turtle.turtles().remove(laser)
+        if time.time() - alien_timer > ALIEN_SPAWN_INTERVAL:
+            create_alien()
+            alien_timer = time.time()
     window.update()
 
 turtle.done()
