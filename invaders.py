@@ -92,7 +92,7 @@ def create_alien():
         ),
         TOP,
     )
-    alien.shape("turtle")
+    alien.shape("arrow")
     alien.setheading(-90)
     alien.color(random.random(), random.random(), random.random())
     aliens.append(alien)
