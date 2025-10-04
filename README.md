@@ -8,7 +8,7 @@ As a software engineer, who is constantly on the lookout for new and exciting le
 
 {Provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the game being played and a walkthrough of the code.}
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://www.youtube.com/watch?v=UabfxuIj28k)
 
 # Development Environment
 
