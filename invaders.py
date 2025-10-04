@@ -27,7 +27,6 @@ ALIEN_SHOOT_JITTER = 1.2
 ALIEN_LASER_SPEED = 14
 ALIEN_LASER_LENGTH = 20
 
-
 window = turtle.Screen()
 window.tracer(0)
 window.setup(0.5, 0.75)
@@ -160,7 +159,6 @@ def create_alien_laser(x, y):
     laser.pendown()
     laser.pensize(6)
     alien_lasers.append(laser)
-
 
 def move_alien_laser(laser):
     laser.clear()
@@ -322,7 +320,6 @@ else:
     splash_text.write("GAME OVER", font=("Courier", 40, "bold"), align="center")
 splash_text.sety(splash_text.ycor() - 40)
 splash_text.write("Press 'R' to restart", font=("Courier", 18, "normal"), align="center")
-
 
 def restart_game():
     python = sys.executable
